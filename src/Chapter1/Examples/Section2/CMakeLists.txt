@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.20)
+project(IntristicTypeSizes)
+project(StringLiteralDemo)
+add_executable(IntristicTypeSizes intristic_type_sizes.cpp)
+add_executable(StringLiteralDemo string_literal_demo.cpp)
