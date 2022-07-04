@@ -1,4 +1,4 @@
 *.out
 *.json
 *.vscode
-build/
+bin/

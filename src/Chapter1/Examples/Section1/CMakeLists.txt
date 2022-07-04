@@ -1,3 +1,2 @@
 cmake_minimum_required(VERSION 3.20)
-project(Chapter1_Examples_Section1)
-add_subdirectory(Example1)
+add_executable(hello42 hello42.cpp)
