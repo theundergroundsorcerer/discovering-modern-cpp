@@ -1,2 +1,3 @@
 cmake_minimum_required(VERSION 3.20.0)
 add_executable(if_scoped_variable if_scoped_variable.cpp)
+add_executable(initialized_range_demo initialized_range_demo.cpp)
