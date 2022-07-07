@@ -9,9 +9,10 @@ add_executable(generic_stream_demo generic_stream_demo.cpp)
 target_link_libraries(generic_stream_demo toy_file_io)
 add_executable(formatting_demo formatting_demo.cpp)
 
+add_executable(io_error_handling_demo io_error_handling_demo.cpp)
+add_executable(io_exceptions_demo io_exceptions_demo.cpp)
+
 # need to install fmt first
-find_package(fmt CONFIG REQUIRED)
 if(fmt_FOUND)
     add_executable(new_formatting_demo new_formatting_demo.cpp)
-    target_link_libraries(new_formatting_demo PRIVATE fmt::fmt-header-only)
 endif()

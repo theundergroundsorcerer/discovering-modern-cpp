@@ -1,9 +1,4 @@
-#include <iostream>
-#include <cstdio>
-#include <string>
-#include <typeinfo>
 #include <fmt/format.h>
-#include <fmt/ostream.h>
 
 namespace dmc {
     using namespace fmt::literals;
