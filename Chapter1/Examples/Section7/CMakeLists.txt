@@ -11,6 +11,7 @@ add_executable(formatting_demo formatting_demo.cpp)
 
 add_executable(io_error_handling_demo io_error_handling_demo.cpp)
 add_executable(io_exceptions_demo io_exceptions_demo.cpp)
+add_executable(filesystem_demo filesystem_demo.cpp)
 
 # need to install fmt first
 if(fmt_FOUND)
