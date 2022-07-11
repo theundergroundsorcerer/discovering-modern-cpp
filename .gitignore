@@ -8,5 +8,5 @@ cmake-build-release/
 .idea/
 *.data
 out/
-.vs/
+
 .DS_Store
