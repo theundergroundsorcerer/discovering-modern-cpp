@@ -3,9 +3,11 @@
 #include <iostream>
 #include <limits>
 
+
 int main() {
-    std::cout << "The max value of unsigned char is" << std::numeric_limits<unsigned char>::max() << '\n';
+    const long unsigned ui1{18446744073709551615ul}; // value of numeric_limits<unsigned long>::max() on 64 bit system
+    std::cout << ui1 << std::endl;
 #if 0
-    const unsigned c1{40000000000}; // Does not compiles on 64 bit machines - doesn't fit unsigned
+    const long unsigned ui1{18446744073709551616ul}; // will not comile
 #endif
 }
