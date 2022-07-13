@@ -1,7 +1,7 @@
 // A simple example demonstrating the usage of file input/output
 #include <fstream>
 #include <iostream>
-#include "toy_file_io.h"
+#include "toy_io.h"
 
 void Write_squares(std::string outputFileName) {
     std::ofstream square_file{outputFileName};

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "toy_file_io.h"
+#include "toy_io.h"
 
 void Write_something(std::ostream& os) {
     os << "Hi stream, did you know that 3 * 3 = " << 3 * 3 << '\n';
