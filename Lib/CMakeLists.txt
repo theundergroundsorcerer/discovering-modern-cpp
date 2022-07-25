@@ -1,0 +1,4 @@
+cmake_minimum_required(VERSION 3.20.0)
+
+add_subdirectory(toy_io_utilities)
+add_subdirectory(toy_geometry)

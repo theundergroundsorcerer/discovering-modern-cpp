@@ -1,8 +1,8 @@
-// A small program demonstrating generic stream ouptut
+// A small program demonstrating generic stream output
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "toy_io.h"
+#include "toy_io_utilities.h"
 
 void Write_something(std::ostream& os) {
     os << "Hi stream, did you know that 3 * 3 = " << 3 * 3 << '\n';
@@ -26,5 +26,5 @@ int main() {
 
     std::cout << "my_stream is: " << my_stream.str();
     std::cout << "The contents of example.txt are:\n";
-    Display_text_file("example.txt");
+    DisplayTextFile("example.txt");
 }

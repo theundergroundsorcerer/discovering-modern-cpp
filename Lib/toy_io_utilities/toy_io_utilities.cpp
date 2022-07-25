@@ -1,8 +1,8 @@
-#include "toy_io.h"
+#include "toy_io_utilities.h"
 #include <fstream>
 #include <sstream>
 
-void Display_text_file(std::string file_name) {
+void DisplayTextFile(const std::string& file_name) {
     std::ifstream input_file{file_name};
     if(!input_file) {
         std::cerr << "Could not open file " << file_name << '\n';
@@ -26,16 +26,16 @@ double StrToDouble(const std::string& str) {
     return result;
 }
 
-double ReadDouble(const std::string& variableName) {
+double ReadDouble(const std::string& variable_name) {
     bool success = false;
 
     double result;
     while(!success) {
-        std::cout << "Enter " << variableName << ": ";
-        std::string nextWord;
-        std::cin >> nextWord;
+        std::cout << "Enter " << variable_name << ": ";
+        std::string next_word;
+        std::cin >> next_word;
         try {
-            result = StrToDouble(nextWord);
+            result = StrToDouble(next_word);
             success = true;
         }
         catch(...) {

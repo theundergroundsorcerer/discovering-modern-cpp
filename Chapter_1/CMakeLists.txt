@@ -1,5 +1,0 @@
-cmake_minimum_required(VERSION 3.20)
-project(Chapter1)
-add_subdirectory(toy_io)
-add_subdirectory(Examples)
-add_subdirectory(Exercises)

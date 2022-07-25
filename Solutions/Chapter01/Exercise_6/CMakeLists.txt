@@ -1,0 +1,3 @@
+cmake_minimum_required(VERSION 3.20.0)
+add_executable(areas_and_volumes_file_io areas_and_volumes_file_io.cpp)
+target_link_libraries(areas_and_volumes_file_io PRIVATE toy_geometry toy_io_utilities)

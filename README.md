@@ -11,8 +11,13 @@ to be able to use CMake features. Expect unnecessary splits into
 headers and libraries, as well as useless tests.
 
 ### Naming conventions:
-using snake_case with first letter capitlized
-for public members of class, class names and library functions.
+PascalCase is used for user defined type names and functions
+and public fields.
+
+Private fields and function parameters use camelCase.
+
+Namespaces begin with lower case and with words_seperated_with_underscores.
+
 
 ### Build Instructions:
 Use cmake. External liberaries, such as `fmt` are not a 

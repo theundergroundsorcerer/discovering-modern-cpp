@@ -1,6 +1,6 @@
 *.out
 *.json
-*.vscode
+*.vscode/
 bin/
 build/
 cmake-build-debug/
@@ -10,3 +10,4 @@ cmake-build-release/
 out/
 .vs/
 .DS_Store
+.DS_Store/
