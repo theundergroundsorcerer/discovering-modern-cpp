@@ -16,7 +16,7 @@
 
 using namespace std::string_literals;
 
-constexpr auto DataFieldNames() {
+inline std::vector<const char*> DataFieldNames() {
     return std::vector{"Radius", "Height", "Sphere surface area", "Sphere volume",
                        "Cube surface area", "Cube volume",
                        "Cylinder surface area", "Cylinder volume",
@@ -34,11 +34,11 @@ std::vector<double> GenerateData(double radius, double height) {
 
 namespace fs = std::filesystem;
 
-constexpr std::string TextDataFolderName() {
+inline std::string TextDataFolderName() {
     return "area_volume_data";
 }
 
-constexpr std::string BinaryDataFolderName() {
+inline std::string BinaryDataFolderName() {
     return "area_volume_binary_data";
 }
 

@@ -8,6 +8,7 @@ class Vector {
 public:
     using size_type = std::initializer_list<double>::size_type;
 
+
     explicit Vector(size_type size) : size{size}, elements{nullptr} {
 #ifdef PRINT_FUNCTION_MESSAGES
         // prints constructor version in debug mode - in order to demonstrate copy elision
@@ -86,7 +87,7 @@ public:
         }
     }
 
-    Vector &operator=(std::initializer_list<double> values) {
+    Vector &operator=(std::initializer_list<double> values) & {
 #ifdef PRINT_FUNCTION_MESSAGES
         std::cout << "std::initializer_list assignment invoked\n";
 #endif
@@ -99,9 +100,12 @@ public:
             elements = new double[size];
             std::copy(values.begin(), values.end(), elements);
         }
+
+        return *this;
     }
 
     ~Vector() {
+        std::cout << "Destructor called\n";
         size = 0;
         delete[] elements;
     }
@@ -121,6 +125,10 @@ public:
         assert(i < size);
         assert(elements != nullptr);
         return elements[i];
+    }
+
+    double Norm() const {
+        return DotProduct(*this, *this);
     }
 
 
@@ -185,26 +193,12 @@ inline double DotProduct(const Vector& v1, const Vector& v2) {
     return result;
 }
 
-#ifdef PRINT_FUNCTION_MESSAGES
-Vector MakeFromTemp(Vector v) {
 
-    std::cout << "Beginning execution of MakeFromTemp...\n";
 
-    return v;
-}
-#endif
+
+
 
 int main() {
-    Vector v = Vector{1,2,3} = Vector{4,5,6};
-    std::cout << "v = " << v << ", v.Size() = " << v.Size() << std::endl;
-    Vector u = 5 * v;
-    std::cout << "5 * u = " << u <<  std::endl;
-    double w = DotProduct(v, u);
-    std::cout << "<" << v << ", " << u << "> = " << w << std::endl;
-#ifdef PRINT_FUNCTION_MESSAGES
-    std::cout << "\nCalling MakeFromTemp(Vector{1, 1, 1,1} " << std::endl;
-    Vector a = MakeFromTemp(Vector{1, 1, 1,1});
-    std::cout << "Assignment: a = MakeFromTemp{2, 2, 2, 2}" << std::endl;
-    a = MakeFromTemp(Vector{2, 2, 2, 2});
-#endif
+
+
 }
