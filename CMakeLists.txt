@@ -19,6 +19,14 @@ else()
             "Some examples may not build")
 endif()
 
+option(WITH_PRINT_FUNCTION_MESSAGES "Print local variables values and invoked function names" OFF)
+if(WITH_PRINT_FUNCTION_MESSAGES)
+    message("Function and local variable information printing enabled")
+    add_definitions(-DPRINT_FUNCTION_MESSAGES)
+endif()
+
+
 add_subdirectory(Lib)
 add_subdirectory(Examples)
 add_subdirectory(Solutions)
+
