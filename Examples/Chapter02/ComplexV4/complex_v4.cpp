@@ -128,18 +128,9 @@ inline Complex FromPolar(const double radius, const double argument) {
 
 
 std::ostream& operator<<(std::ostream& os, const Complex& c) {
-    os << std::fixed << Real(c) << (Imaginary(c) >= 0 ? "+" : "") << Imaginary(c) << "i";
+    os << Real(c) << (Imaginary(c) >= 0 ? "+" : "") << Imaginary(c) << "i";
     return os;
 }
-
-template <typename T>
-class ValueWrapper {
-    template <typename S>
-    ValueWrapper(S&& s) : value{std::forward(s)} {}
-
-private:
-    T value;
-};
 
 int main() {
 
