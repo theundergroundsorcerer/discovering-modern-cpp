@@ -4,11 +4,13 @@
 #include <string>
 #include <cmath>
 #include <numbers>
-#include <vector>
+#include <fmt/format.h>
+#include <sstream>
+#include <algorithm>
 
 class Complex {
 public:
-    Complex(double real = 0.0, double imaginary = 0.0) : real{real}, imaginary{imaginary} {}
+    Complex (double real = 0.0, double imaginary = 0.0) : real{real}, imaginary{imaginary} {}
 
 
     Complex(const Complex& complex) = default;
@@ -16,22 +18,22 @@ public:
     Complex(Complex&&) noexcept = default;
     Complex& operator=(Complex&&) noexcept = default;
 
-    double& Real() & {
-        return real;
-    }
-
-    double& Imaginary() & {
-        return imaginary;
-    }
-
     [[nodiscard]]
-    double Real() const & {
+    double Real() const {
         return real;
     }
 
     [[nodiscard]]
-    double Imaginary() const & {
+    double Imaginary() const {
         return imaginary;
+    }
+
+    void SetRead(double newReal) {
+        real = newReal;
+    }
+
+    void SetImaginary(double newImaginary) {
+        imaginary = newImaginary;
     }
 
     [[nodiscard]]
@@ -51,39 +53,31 @@ public:
 
     [[nodiscard]]
     Complex Inverse() const {
-        return {real / Abs(), -imaginary / Abs()};
+        return Complex{real / Abs(), -imaginary / Abs()};
     }
 
 private:
     double real;
     double imaginary;
-    friend double& Real(Complex& c);
     friend double Real(const Complex& c);
-    friend double& Imaginary(Complex& c);
+    friend double Real(const Complex& c);
+    friend double Imaginary(const Complex& c);
     friend double Imaginary(const Complex& c);
     friend double Abs(const Complex& c);
     friend double Arg(const Complex& c);
     friend Complex Conjugate(const Complex& c);
     friend Complex Inverse(const Complex& c);
-    friend Complex FromPolar(const double radius, const double argument);
+    Complex FromPolar(const double radius, const double argument);
     friend Complex operator+(const Complex& c1, const Complex& c2);
     friend Complex operator-(const Complex& c1, const Complex& c2);
     friend Complex operator*(const Complex& c1, const Complex& c2);
     friend Complex operator/(const Complex& c1, const Complex& c2);
     friend Complex operator/(const Complex& c, const double d);
-
 };
 
-inline double& Real(Complex& c) {
-    return c.real;
-}
 
 inline double Real(const Complex& c) {
     return c.real;
-}
-
-inline double& Imaginary(Complex& c) {
-    return c.imaginary;
 }
 
 inline double Imaginary(const Complex& c) {
@@ -131,4 +125,22 @@ inline Complex FromPolar(const double radius, const double argument) {
     return Complex{radius * std::cos(argument), radius * std::sin(argument)};
 }
 
-int main() {}
+
+
+std::ostream& operator<<(std::ostream& os, const Complex& c) {
+    os << std::fixed << Real(c) << (Imaginary(c) >= 0 ? "+" : "") << Imaginary(c) << "i";
+    return os;
+}
+
+template <typename T>
+class ValueWrapper {
+    template <typename S>
+    ValueWrapper(S&& s) : value{std::forward(s)} {}
+
+private:
+    T value;
+};
+
+int main() {
+
+}

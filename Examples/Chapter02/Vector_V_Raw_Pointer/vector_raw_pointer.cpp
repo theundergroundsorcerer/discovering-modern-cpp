@@ -3,6 +3,7 @@
 #include <initializer_list>
 #include <iostream>
 #include <algorithm>
+#include <cmath>
 
 class Vector {
 public:
@@ -128,7 +129,10 @@ public:
     }
 
     double Norm() const {
-        return DotProduct(*this, *this);
+#ifdef PRINT_FUNCTION_MESSAGES
+        std::cout << "Norm function invoked\n";
+#endif
+        return std::sqrt(DotProduct(*this, *this));
     }
 
 
@@ -140,6 +144,7 @@ private:
     friend Vector operator*(const double c, const Vector& v);
     friend std::ostream& operator<<(std::ostream& os, const Vector& v);
     friend double DotProduct(const Vector& v1, const Vector& v2);
+    friend double Norm(const Vector& v);
 };
 
 inline Vector operator+(const Vector& v1, const Vector& v2) {
@@ -193,12 +198,11 @@ inline double DotProduct(const Vector& v1, const Vector& v2) {
     return result;
 }
 
+inline double Norm(const Vector& v) {
 
-
-
-
+    return v.Norm();
+}
 
 int main() {
-
 
 }
