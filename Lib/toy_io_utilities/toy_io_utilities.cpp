@@ -3,6 +3,7 @@
 #include <sstream>
 
 void DisplayTextFile(const std::string& file_name) {
+
     std::ifstream input_file{file_name};
     if(!input_file) {
         std::cerr << "Could not open file " << file_name << '\n';
@@ -43,5 +44,4 @@ double ReadDouble(const std::string& variable_name) {
         }
     }
     return result;
-
 }

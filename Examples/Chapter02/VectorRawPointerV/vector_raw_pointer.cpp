@@ -206,13 +206,14 @@ inline double operator *(const Vector& v1, const Vector& v2) {
 inline std::ostream& operator<<(std::ostream& os, const Vector& v) {
     assert(v.length == 0 || v.elements != nullptr);
     os << "(";
-    for(Vector::size_type i = 0; i < v.length - 1; ++i) {
-        os << v[i] << ',';
-    }
 
     if(v.length == 0) {
         os << ')';
         return os;
+    }
+
+    for(Vector::size_type i = 0; i < v.length - 1; ++i) {
+        os << v[i] << ',';
     }
 
     os << v[v.length - 1] << ')';
