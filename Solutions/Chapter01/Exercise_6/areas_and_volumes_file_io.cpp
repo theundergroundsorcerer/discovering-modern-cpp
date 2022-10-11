@@ -9,7 +9,7 @@
 #include <filesystem>
 #include <bit>
 #include "toy_geometry.h"
-#include <toy_io_utilities.h>
+#include <toy_utilities.h>
 #include <array>
 #include <vector>
 #include <stdexcept>

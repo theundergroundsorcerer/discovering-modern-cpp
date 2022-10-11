@@ -1,5 +1,5 @@
 // Reads three double numbers from standard input and prints the middle value
-#include "toy_io_utilities.h"
+#include "toy_utilities.h"
 
 int main() {
     std::cout << "Enter three numbers.\n";

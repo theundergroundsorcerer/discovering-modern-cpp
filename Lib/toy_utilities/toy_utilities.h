@@ -5,6 +5,29 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <typeinfo>
+#include <string_view>
+
+template <typename T>
+constexpr auto type_name() {
+    std::string_view name, prefix, suffix;
+#ifdef __clang__
+    name = __PRETTY_FUNCTION__;
+  prefix = "auto type_name() [T = ";
+  suffix = "]";
+#elif defined(__GNUC__)
+    name = __PRETTY_FUNCTION__;
+    prefix = "constexpr auto type_name() [with T = ";
+    suffix = "]";
+#elif defined(_MSC_VER)
+    name = __FUNCSIG__;
+  prefix = "auto __cdecl type_name<";
+  suffix = ">(void)";
+#endif
+    name.remove_prefix(prefix.size());
+    name.remove_suffix(suffix.size());
+    return name;
+}
 
 // A function to display contents of text file. Used in several places in Chapter 1
 void DisplayTextFile(const std::string& file_name);
@@ -35,6 +58,14 @@ bool ReadFromStream(T& variable, std::istream& in) {
 
     bool success = ConvertFromString(variable, next_word);
     return success;
+}
+
+template <typename T>
+struct wrap {};
+
+template <typename T>
+auto my_info() {
+    return type_name<wrap<T> >();
 }
 
 
