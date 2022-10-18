@@ -26,16 +26,16 @@ std::string l_or_r(T&) { return " mutable";}
 template <typename TPara>
 void info2(TPara&& p) {
     std::cout << "Type of TPara is " << type_name<TPara>()
-    << " === " << my_info<TPara>()
-    << ", is" << (std::is_lvalue_reference<TPara>::value ? "" : " no") << " lref"
-    << ", is" << (std::is_rvalue_reference<TPara>::value ? "" : " no") << " rref"
-    << ", is" << (std::is_const<TPara>::value ? "" : " not") << " const\n"
-    << "Type of p is " << type_name<decltype(p)>()
-    << " == " << my_info<decltype(p)>()
-    << ", is" << (std::is_lvalue_reference<decltype(p)>::value ? "" : " no") << " lref"
-    << ", is" << (std::is_rvalue_reference<decltype(p)>::value ? "" : " no") << " rref"
-    << ", is" << l_or_r(p)
-    << "\n====================\n\n";
+              << " === " << my_info<TPara>()
+              << ", is" << (std::is_lvalue_reference<TPara>::value ? "" : " no") << " lref"
+              << ", is" << (std::is_rvalue_reference<TPara>::value ? "" : " no") << " rref"
+              << ", is" << (std::is_const<TPara>::value ? "" : " not") << " const\n"
+              << "Type of p is " << type_name<decltype(p)>()
+              << " == " << my_info<decltype(p)>()
+              << ", is" << (std::is_lvalue_reference<decltype(p)>::value ? "" : " no") << " lref"
+              << ", is" << (std::is_rvalue_reference<decltype(p)>::value ? "" : " no") << " rref"
+              << ", is" << l_or_r(p)
+              << "\n====================\n\n";
 }
 
 inline auto max(const auto& a, const auto& b) {
@@ -99,41 +99,41 @@ auto main() -> int {
 
     std::unique_ptr<int> up;
 
-   //f1(up);
-   f1(move(up));
+    //f1(up);
+    f1(move(up));
 
-   std::cout << "\nf2(const TPara&) invocation results:\n";
-   f2(3);
-   f2(i);
-   f2(j);
-   f2(k);
-   f2(up);
+    std::cout << "\nf2(const TPara&) invocation results:\n";
+    f2(3);
+    f2(i);
+    f2(j);
+    f2(k);
+    f2(up);
 
-   std::cout << "\nf3(TPara&) invocation results:\n";
-   f3<const int>(3);
-   f3<const int&>(3);
-   f3<const int&&>(3);
+    std::cout << "\nf3(TPara&) invocation results:\n";
+    f3<const int>(3);
+    f3<const int&>(3);
+    f3<const int&&>(3);
 
-   f3(i);
-   f3(j);
-   f3(k);
-   f3(up);
+    f3(i);
+    f3(j);
+    f3(k);
+    f3(up);
 
-   std::cout << "\nf4(const TPara) invocation results:\n";
-   f4(3);
-   f4(i);
-   f4(j);
-   f4(k);
-   f4(std::move(up));
+    std::cout << "\nf4(const TPara) invocation results:\n";
+    f4(3);
+    f4(i);
+    f4(j);
+    f4(k);
+    f4(std::move(up));
 
-   std::cout << "\nf5(TPara&&) invocation results:\n";
-   f5(3);
-   f5(i);
-   f5(std::move(i));
-   f5(j);
-   f5(k);
-   f5(up);
-   f5(std::move(up));
+    std::cout << "\nf5(TPara&&) invocation results:\n";
+    f5(3);
+    f5(i);
+    f5(std::move(i));
+    f5(j);
+    f5(k);
+    f5(up);
+    f5(std::move(up));
 
     std::cout << "\nf6(const TPara&&) invocation results:\n";
     f6(3);
