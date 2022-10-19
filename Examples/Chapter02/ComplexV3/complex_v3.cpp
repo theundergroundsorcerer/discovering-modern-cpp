@@ -1,4 +1,4 @@
-// First version of comlpex class with constructors
+// first version of comlpex class with constructors
 #include <iostream>
 
 class Complex {
