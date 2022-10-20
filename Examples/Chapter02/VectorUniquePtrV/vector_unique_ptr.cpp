@@ -73,6 +73,9 @@ inline auto operator+(const Vector& left, const Vector& right) -> Vector {
     for(std::size_t i = 0; i < left.length; ++i) {
         result.elements[i] = left.elements[i] + right.elements[i];
     }
+
+    return result;
+
 }
 
 inline auto operator<<(std::ostream& os, const Vector& v) -> std::ostream& {
@@ -102,4 +105,5 @@ auto main() -> int {
     std::cout << "Assigning u a new value...\n";
     u = Vector{4, 5, 6};
     std::cout << "u = " << u << '\n';
+    std::cout << "u + v = " << u + v << std::endl;
 }
