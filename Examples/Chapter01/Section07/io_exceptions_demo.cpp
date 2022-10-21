@@ -9,7 +9,7 @@ void with_exceptions(std::ios& io) {
 int main() {
     std::ofstream out_file;
     with_exceptions(out_file);
-    out_file.open("f.data");
+    out_file.open("f.data_");
 
     double o1 = 5.2, o2 = 6.2;
     out_file << o1 << o2 << std::endl;
@@ -18,11 +18,11 @@ int main() {
     std::ifstream in_file;
     with_exceptions(in_file);
     try {
-        in_file.open("g.data");
+        in_file.open("g.data_");
     }
     catch(std::ifstream::failure e) {
-        std::cout << "Could not open 'g.data': " << e.what() << '\n';
-        in_file.open("f.data");
+        std::cout << "Could not open 'g.data_': " << e.what() << '\n';
+        in_file.open("f.data_");
     }
 
     int i1, i2;

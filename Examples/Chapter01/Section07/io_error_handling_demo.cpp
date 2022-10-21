@@ -3,14 +3,14 @@
 #include <iostream>
 
 void create_good_file() {
-    std::ofstream good_file{"good_file.data"};
+    std::ofstream good_file{"good_file.data_"};
     good_file << 5 << ' ' << 6.0 << '\n';
 }
 
 int main() {
     create_good_file();
     std::ifstream infile;
-    std::string filename{"bad_file.data"};
+    std::string filename{"bad_file.data_"};
     bool opened = false;
     while(!opened) {
         infile.open(filename);
@@ -18,7 +18,7 @@ int main() {
             opened = true;
         } else {
             std::cout << "The file '" << filename << "' does not exist (or can not be opened),"
-                      << "please enter: 'good_file.data': ";
+                      << "please enter: 'good_file.data_': ";
             std::cin >> filename;
         }
     }
