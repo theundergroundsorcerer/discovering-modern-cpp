@@ -84,7 +84,7 @@ auto deriveLambda2 = [](auto f, auto h) {
     } else {
         auto prev = deriveLambda2<N-1>(f, h);
         return [=](double x) {
-            if constexpr (N & 1 != 0) {
+            if constexpr ( (N & 1) != 0) {
                 return (prev(x+h) - prev(x)) / h;
             } else {
                 return (prev(x) - prev(x-h)) / h;

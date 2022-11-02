@@ -26,3 +26,6 @@ to the instructions on the platform. When invoking cmake commands,
 appropriate flags need to be passed to make the libraries discoverable
 using `find_package` comand.
 
+In addition the project uses `ranges-v3` instead of standard ranges due
+to clang bugs at the moment of writing. 
+

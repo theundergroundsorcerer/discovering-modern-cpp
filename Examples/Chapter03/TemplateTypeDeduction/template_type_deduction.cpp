@@ -100,7 +100,7 @@ auto main() -> int {
     std::unique_ptr<int> up;
 
     //f1(up);
-    f1(move(up));
+    f1(std::move(up));
 
     std::cout << "\nf2(const TPara&) invocation results:\n";
     f2(3);
